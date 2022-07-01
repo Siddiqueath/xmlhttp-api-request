@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest countries flag</title>
+</head>
+<body>
+    <script>
+        let request = new XMLHttpRequest();
+            request.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+            request.send();
+            request.onload = function () {
+                let data = JSON.parse(request.response);
+                for (let i = 0; i < data.length; i++) {
+                    console.log(`flag: ${data[i].flag}`);
+                }
+            }
+    </script>
+</body>
+</html>

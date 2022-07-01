@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest countries properties</title>
+</head>
+<body>
+    <script>
+        let req = new XMLHttpRequest();
+            req.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+            req.send();
+            req.onload = function () {
+                let countries = JSON.parse(req.response);
+                for (let i = 0; i < countries.length; i++) {
+                    console.log(`name: ${countries[i].name} 
+region: ${countries[i].region} 
+sub region: ${countries[i].subregion} 
+population: ${countries[i].population}
+latitude: ${countries[i].latlng[0]}
+longitude: ${countries[i].latlng[1]}`);
+                }
+            }
+    </script>
+</body>
+</html>
